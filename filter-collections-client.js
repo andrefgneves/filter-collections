@@ -624,6 +624,8 @@ Meteor.FilterCollections = function (collection, settings) {
       this.set(_query);
     },
     getResults: function(){
+      _deps.query.depend();
+
       var q = _.clone(_query);
       q.options = _.omit(q.options, 'skip', 'limit');
 
